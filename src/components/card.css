@@ -1,0 +1,95 @@
+.card-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  min-width: 150px;
+}
+.card {
+  min-width: 150px;
+  min-height: 10rem;
+  background: #34364f;
+  z-index: -2;
+  border-radius: 0.7rem;
+  overflow: hidden;
+  box-shadow: 0 10px 2px var(--very-mostly-black-blue);
+  position: relative;
+  perspective: 2000px;
+  perspective-origin: top;
+}
+.behind {
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  text-align: center;
+  color: var(--soft-red);
+  font-size: 7rem;
+  position: absolute;
+  z-index: -1;
+}
+.desc {
+  text-align: center;
+}
+.item {
+  height: 100%;
+  position: relative;
+  z-index: 1;
+}
+
+.item .top,
+.item .bottom {
+  height: 50%;
+}
+.item .top {
+  border-bottom: 2px solid #40404d2a;
+  background: #39394f50;
+  text-align: center;
+  color: var(--soft-red);
+  font-size: 7rem;
+  padding-top: 0.5rem;
+  overflow: hidden;
+}
+.item .bottom {
+  position: relative;
+}
+.item > p {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 7rem;
+  color: var(--soft-red);
+  z-index: -1;
+}
+.item .top::before,
+.item .top::after,
+.item .bottom::after,
+.item .bottom::before {
+  border-radius: 0.7rem;
+  padding: 5px;
+  background: #231d2b;
+}
+.item .bottom::after {
+  content: "";
+  position: absolute;
+  top: -5%;
+  right: -5px;
+}
+.item .bottom::before {
+  content: "";
+  position: absolute;
+  top: -5%;
+  left: -5px;
+}
+
+.change {
+  transform: rotateX(3600deg);
+  transform-style: preserve-3d;
+  transition: transform 1s cubic-bezier(0.86, 0, 0.07, 1);
+  transform-origin: bottom;
+}
+.desc {
+  color: var(--grayish-blue);
+}
