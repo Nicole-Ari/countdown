@@ -43,7 +43,8 @@ const Home = () => {
     <div className="main">
       <div className="haut">
         <p>
-          Countdown started :<span> D-{date[0]?.days} </span>until the big day!
+          Countdown started :<span> &nbsp; D-{date[0]?.days} </span>until the
+          big day!
         </p>
         <div className="container">
           {date.map((item, index) => {

@@ -1,15 +1,15 @@
-import React, { useEffect, useRef } from "react";
+import React, { useLayoutEffect, useRef } from "react";
 import "./card.css";
 const Card = ({ index, desc, date }) => {
   const cardRef = useRef();
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     const el = cardRef.current;
     if (el) {
-      el.classList.add("change");
+      el.classList.toggle("change");
       const timer = setTimeout(() => {
         el.classList.remove("change");
-      }, 300);
+      }, 100);
       return () => clearTimeout(timer);
     }
   }, [date]);
@@ -23,6 +23,9 @@ const Card = ({ index, desc, date }) => {
         <div className="item ">
           <p>{date}</p>
           <div className="top change" ref={cardRef}>
+            <p>{date}</p>
+          </div>
+          <div className="topback ">
             <p>{date}</p>
           </div>
           <div className="bottom"></div>
