@@ -4,7 +4,6 @@ import Card from "../components/Card";
 import "./home.css";
 const Home = () => {
   const [date, setDate] = useState([]);
-  const targetDate = new Date("April 18, 2026 00:00:00").getTime();
 
   const calculateDate = (dt) => {
     if (isNaN(dt)) {
@@ -22,6 +21,7 @@ const Home = () => {
     ];
   };
   useEffect(() => {
+    const targetDate = new Date(new Date().setDate(new Date().getDate() + 30));
     const interval = setInterval(() => {
       const now = new Date().getTime();
       const distance = targetDate - now;
@@ -37,7 +37,7 @@ const Home = () => {
     }, 1000);
 
     return () => clearInterval(interval);
-  }, [targetDate]);
+  }, []);
 
   return (
     <div className="main">
